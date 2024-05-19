@@ -13,11 +13,9 @@ def signin(request):
         password = request.POST.get('password')
         user =authenticate(request,username=username,password=password)
         if user is not None:
-            print("working")
             login(request, user)
             return redirect("home")
         else:
-            print("not working")
             messages.info(request,"Bad cred")
             return redirect("signin")
     else:
